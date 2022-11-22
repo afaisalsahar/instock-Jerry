@@ -1,0 +1,35 @@
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+    background-color: $background-light-grey;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        display: flex;
+        padding: 2rem 0;
+
+        @include tablet {
+            padding: 4rem 0 2rem 0;
+        }
+        @include desktop {
+            padding: 5rem 0 2rem 0;
+        }
+    }
+
+    &__text {
+        font-size: .6875rem;
+        line-height: 1rem;
+        font-weight: 400;
+        color: $secondary-slate;
+        @include tablet {
+            font-size: .75rem;
+            line-height: 1.125rem;
+        }
+    }
+
+
+}
+
