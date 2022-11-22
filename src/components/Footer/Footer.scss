@@ -1,0 +1,20 @@
+@use "../../styles/partials/globals";
+
+.footer {
+    background-color: #F7F8F9;
+    display: flex;
+    justify-content: center;
+
+    &__box {
+        display: flex;
+        padding: 2rem 0;
+    }
+
+    &__text {
+        font-size: .6875rem;
+        line-height: 1rem;
+        font-weight: 400;
+        color: #5C667E;
+    }
+}
+
