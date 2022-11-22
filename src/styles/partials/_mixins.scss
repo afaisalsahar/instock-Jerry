@@ -1,0 +1,20 @@
+@use "./variables" as *;
+
+// Mixins for breakpoints
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+// Mixin for fixing content to 1280px
+@mixin width-fix {
+  width: $max-width-for-content;
+  margin: 0 auto;
+}
