@@ -1,4 +1,6 @@
 @use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .footer {
     background-color: #F7F8F9;
@@ -8,6 +10,13 @@
     &__box {
         display: flex;
         padding: 2rem 0;
+
+        @include tablet {
+            padding: 4rem 0 2rem 0;
+        }
+        @include desktop {
+            padding: 5rem 0 2rem 0;
+        }
     }
 
     &__text {
@@ -15,6 +24,12 @@
         line-height: 1rem;
         font-weight: 400;
         color: #5C667E;
+        @include tablet {
+            font-size: .75rem;
+            line-height: 1.125rem;
+        }
     }
+
+
 }
 
