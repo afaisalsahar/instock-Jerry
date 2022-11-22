@@ -3,7 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .footer {
-    background-color: #F7F8F9;
+    background-color: $background-light-grey;
     display: flex;
     justify-content: center;
 
@@ -23,7 +23,7 @@
         font-size: .6875rem;
         line-height: 1rem;
         font-weight: 400;
-        color: #5C667E;
+        color: $secondary-slate;
         @include tablet {
             font-size: .75rem;
             line-height: 1.125rem;
