@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/Logo/InStock-Logo.svg";
 import "./Header.scss";
 
@@ -13,15 +13,25 @@ const Header = () => {
             </Link>
           </div>
           <div className="nav__container-links">
-            <div className="nav__container-link nav__container-link--active">
-              <Link to="/warehouses" className="nav__link nav__link--active">
+            <div className="nav__container-link">
+              <NavLink
+                to="/warehouses"
+                className={({ isActive }) =>
+                  isActive ? "nav__link--active" : "nav__link"
+                }
+              >
                 Warehouse
-              </Link>
+              </NavLink>
             </div>
             <div className="nav__container-link">
-              <Link to="/inventories" className="nav__link">
+              <NavLink
+                to="/inventories"
+                className={({ isActive }) =>
+                  isActive ? "nav__link--active" : "nav__link"
+                }
+              >
                 Inventory
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
