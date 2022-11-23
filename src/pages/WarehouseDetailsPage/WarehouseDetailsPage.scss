@@ -1,0 +1,78 @@
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-details {
+  // Warehouse Heading
+  // Header
+  &__container-headers {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 1.5rem 0;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+  }
+
+  &__container-header {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+
+    @include tablet {
+      margin-left: 2rem;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    height: 1.5rem;
+  }
+
+  &__arrow-image {
+    margin: 0 0.5rem 0 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  // Edit
+  &__edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-color: $primary-indigo;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: $primary-white;
+
+    @include tablet {
+      margin-right: 2rem;
+      width: 5.625rem;
+      height: 2.25rem;
+      border-radius: 1.25rem;
+    }
+  }
+
+  &__edit-img {
+    padding: 0 0 0.1rem 0;
+
+    @include tablet {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  &__edit-text {
+    display: none;
+
+    @include tablet {
+      display: inline;
+      padding: 0 0 0 0.5rem;
+    }
+  }
+}
