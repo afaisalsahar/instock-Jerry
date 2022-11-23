@@ -13,5 +13,10 @@
 
   @include tablet {
     margin: 0 2rem;
+    top: -6.08rem;
+  }
+
+  @include desktop {
+    @include width-fix;
   }
 }

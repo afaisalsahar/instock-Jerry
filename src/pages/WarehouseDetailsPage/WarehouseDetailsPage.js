@@ -24,6 +24,7 @@ const WarehouseDetailsPage = () => {
             alt="edit pencil"
             className="warehouse-details__edit-img"
           />
+          <p className="warehouse-details__edit-text">Edit</p>
         </Link>
       </div>
       <WarehouseDetails />
