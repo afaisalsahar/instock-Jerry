@@ -1,0 +1,51 @@
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-details {
+  margin: 10.5rem 2.5rem 0 2.5rem;
+
+  // Warehouse Heading
+  // Header
+  &__container-headers {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 1rem 0;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+  }
+
+  &__container-header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__arrow {
+    display: flex;
+    height: 1.5rem;
+  }
+
+  &__arrow-image {
+    margin: 0 0.5rem 0 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  // Edit
+  &__edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-color: $primary-indigo;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  &__edit-img {
+    padding: 0 0 0.1rem 0;
+  }
+}

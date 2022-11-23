@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WarehouseDetailsPage from "./pages/WarehouseDetails/WarehouseDetailsPage";
 
 // import environment variables
 const PORT = process.env.REACT_APP_PORT;
@@ -8,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element />
+        <Route path="/" element={<WarehouseDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
