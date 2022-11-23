@@ -1,0 +1,39 @@
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-details {
+  // Warehouse Information
+  &__container-info {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 0 0;
+  }
+
+  // Address
+  &__container-address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Contact
+  &__container-contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+    padding: 0 0 1rem 0;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+  }
+
+  // Text
+  &__head {
+    color: $secondary-slate;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+}
