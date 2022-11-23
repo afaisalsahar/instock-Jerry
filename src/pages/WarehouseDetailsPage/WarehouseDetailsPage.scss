@@ -3,20 +3,23 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouse-details {
-  margin: 10.5rem 2.5rem 0 2.5rem;
-
   // Warehouse Heading
   // Header
   &__container-headers {
     display: flex;
     justify-content: space-between;
-    padding: 0 0 1rem 0;
+    padding: 2rem 0 1.5rem 0;
     border-bottom: 0.0938rem solid $secondary-cloud;
   }
 
   &__container-header {
     display: flex;
     align-items: center;
+    margin-left: 1.5rem;
+
+    @include tablet {
+      margin-left: 2rem;
+    }
   }
 
   &__arrow {
@@ -43,6 +46,11 @@
     border-radius: 50%;
     width: 2.25rem;
     height: 2.25rem;
+    margin-right: 1.5rem;
+
+    @include tablet {
+      margin-right: 2rem;
+    }
   }
 
   &__edit-img {

@@ -18,7 +18,7 @@ const WarehouseDetailsPage = () => {
           </Link>
           <h1 className="warehouse-details__title">Washington</h1>
         </div>
-        <Link to="/:id" className="warehouse-details__edit">
+        <Link to="/edit-warehouse/:id" className="warehouse-details__edit">
           <img
             src={edit}
             alt="edit pencil"
