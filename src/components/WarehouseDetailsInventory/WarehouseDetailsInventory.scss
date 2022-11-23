@@ -1,0 +1,33 @@
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory {
+  // Containers
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__container-row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__container-text {
+    display: flex;
+    width: 50%;
+  }
+
+  // Links
+  &__link {
+    display: flex;
+    width: 50%;
+    text-decoration: none;
+  }
+
+  &__text {
+    text-transform: uppercase;
+    color: $secondary-slate;
+  }
+}
