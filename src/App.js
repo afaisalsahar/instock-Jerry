@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import InventoryPage from "./pages/InventoryPage/InventoryPage";
 
 // import environment variables
 const PORT = process.env.REACT_APP_PORT;
@@ -10,6 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element />
+        <Route path="/inventory" element={<InventoryPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
