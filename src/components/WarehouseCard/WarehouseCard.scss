@@ -55,7 +55,7 @@
             display: flex;
             align-items: center;
             flex-basis: none;
-            min-width: 10rem;
+            min-width: 9rem;
             margin: 1rem 0;
         }
     }
@@ -74,7 +74,7 @@
 
         @include tablet {
             flex-basis: auto;
-            min-width: rem;
+            min-width: 3rem;
             gap: 1rem;
         }
     }
