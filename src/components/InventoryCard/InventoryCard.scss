@@ -1,0 +1,128 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-card {
+    border-top: .0625rem solid $secondary-cloud;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include tablet {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        border: none;
+        border-bottom: .0625rem solid $secondary-cloud;
+    }
+
+    &__container {
+        width: 140px;
+        margin: 0 0 .0625rem 0;
+
+        @include tablet {
+            width: 11rem;
+        }
+
+        @include desktop {
+            width: 9rem;
+        }
+
+        &--margin {
+            margin-left: auto;
+
+            @include tablet {
+                margin-left: 0;
+            }
+        }
+
+        &--buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__title {
+        color: $secondary-slate;
+        font-size: .6875rem;
+        font-weight: 600;
+        line-height: 4px;
+        margin: 0 0 .25rem 0;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__link {
+        color: $primary-indigo;
+        font-size: .8125rem;
+        font-weight: 600;
+        line-height: 1.25rem;
+        display: flex;
+        align-items: center;
+
+        @include tablet{
+          font-size: .875rem;
+          font-weight: 600;
+          line-height: 1.375rem;
+        }        
+        
+     
+    }
+
+    &__status {
+        border-radius: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .25rem .5rem;
+        font-size: .6875rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1rem;
+      
+        @include tablet {
+          font-size: .75rem;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.125rem;
+        }
+
+        &--is {
+            width: 3.75rem;
+            height: 1.5rem;
+            background-color: rgba($supporting-green, 0.07);
+            color: $supporting-green;
+        }
+
+        &--oos {
+            width: 5.5rem;
+            height: 1.5rem;
+            background-color: rgba($supporting-red, 0.07);
+            color: $supporting-red;
+        }
+    }
+
+    &__paragraph {
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+      
+        @include tablet {
+          font-size: .875rem;
+          font-weight: 400;
+          line-height: 1.375rem;
+        }    }
+
+    &__button {
+        background-color: $primary-white;
+        border: 0;
+        cursor: pointer;
+    }
+}
+
+.display-none {
+    display: none;
+  }

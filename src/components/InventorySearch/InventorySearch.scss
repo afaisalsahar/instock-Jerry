@@ -1,0 +1,53 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-search {
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        flex-basis: 100%;
+        margin: 1.5rem 1rem 0;
+    }
+
+    &__input {
+        flex-basis: 100%;
+        border-radius: 20px;
+        border: none;
+        border: 1px solid $secondary-cloud;
+        height: 2.25rem;
+        padding: 0 1rem;
+        margin: 1rem 1rem 0;
+        background-image: url("../../assets/images//Icons/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: 98%;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary-indigo;
+        }
+
+        @include tablet {
+            background-position: 99%;
+        }
+    }
+
+    &__button {
+        flex-basis: 100%;
+        border-radius: 20px;
+        border: none;
+        color: white;
+        background-color: $primary-indigo;
+        height: 2.25rem;
+        margin: 1rem 1rem 0;
+        cursor: pointer;
+    }
+}
+
+button.inventory-search__button:hover {
+    background-color: $primary-black;
+}
