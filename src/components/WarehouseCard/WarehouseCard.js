@@ -1,4 +1,4 @@
-import editLogo from "../../assets/images/Icons/edit-24px.svg";
+import editLogo from "../../assets/images/Icons/edit_blue-24px.svg";
 import deleteLogo from "../../assets/images/Icons/delete_outline-24px.svg";
 import chevronLogo from "../../assets/images/Icons/chevron_right-24px.svg";
 import "./WarehouseCard.scss"
