@@ -1,0 +1,105 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-card {
+    border-top: 1px solid $secondary-cloud;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include tablet {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        border: none;
+        border-bottom: 1px solid $secondary-cloud;
+    }
+
+    &__title {
+        color: $secondary-slate;
+        text-transform: uppercase;
+        margin: 0 1rem;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__warehouse {
+        color: $primary-indigo;
+        margin: 0 0 0 1rem;
+    }
+
+    &__contact-name, &__contact-info, &__address {
+        margin: 0 1rem;
+    }
+
+    &__name-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__warehouse-chevron {
+        width: 1.5rem;
+
+        @include tablet {
+            width: 2rem;
+        }
+    }
+// Container for title and warehouse data
+    &__container-name, &__container-address, &__container-contact-name, &__container-contact-info {
+        flex-basis: 40%;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            flex-basis: none;
+            min-width: 9rem;
+            margin: 1rem 0;
+        }
+    }
+
+    &__container-name {
+        cursor: pointer;
+    }
+
+// Edit and Delete Icons
+    &__icon-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 1rem;
+        flex-basis: 100%;
+        order: 4;
+
+        @include tablet {
+            flex-basis: auto;
+            min-width: 3rem;
+            gap: 1rem;
+        }
+    }
+
+    &__delete {
+        cursor: pointer;
+        width: 1.5rem;
+    }
+
+    &__edit {
+        cursor: pointer;
+        width: 1.5rem;
+    }
+}
+
+// Hover state
+
+// Warehouse Card
+article.warehouse-card:hover {
+    background-color: RGBA(46,102,229,0.07);
+}
+
+// Warehouse Name
+p.warehouse-card__warehouse:hover {
+    text-decoration-line: underline;
+}
+

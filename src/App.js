@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import WarehouseList from "./pages/WarehouseList";
 import "./App.scss";
 
 // import environment variables
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <main className="app">
         <Routes>
+          <Route path="/" element={<WarehouseList />} />
           <Route path="/warehouses" element={<WarehouseDetailsPage />} />
           <Route path="/warehouses/edit-warehouse/:id" element />
           <Route path="/warehouses/:id" element />
