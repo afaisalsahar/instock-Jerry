@@ -50,7 +50,7 @@ const WarehouseDetailsPage = () => {
             </h1>
           </div>
           <Link
-            to={`/edit-warehouse/${id}`}
+            to={`/warehouses/${id}/edit`}
             className="warehouse-details__edit"
           >
             <img
