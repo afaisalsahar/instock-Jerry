@@ -4,14 +4,23 @@ import deleteIcon from "../../assets/images/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/Icons/edit_blue-24px.svg";
 import "./WarehouseDetailsInventory.scss";
 
-const WarehouseDetailsInventory = ({ item, category, status, quantity }) => {
+const WarehouseDetailsInventory = ({
+  item,
+  category,
+  status,
+  quantity,
+  id,
+}) => {
   return (
     <section className="inventory">
       <div className="inventory__container">
         <div className="inventory__container-sub">
           <div className="inventory__container-details">
             <h4 className="inventory__header">inventory</h4>
-            <Link className="inventory__container-chevron">
+            <Link
+              to={`/inventories/${id}`}
+              className="inventory__container-chevron"
+            >
               <p className="inventory__text inventory__text--blue">{item}</p>
               <img
                 src={chevronArrowIcon}
@@ -30,22 +39,24 @@ const WarehouseDetailsInventory = ({ item, category, status, quantity }) => {
         <div className="inventory__container-sub">
           <div className="inventory__container-details">
             <h4 className="inventory__header">status</h4>
-            <div
-              className={`inventory__container-stock ${
-                status === "In Stock"
-                  ? "inventory__container-stock--instock "
-                  : "inventory__container-stock--outstock"
-              }`}
-            >
-              <p
-                className={`inventory__stock ${
+            <div className="inventory__container-stock">
+              <span
+                className={`inventory__span ${
                   status === "In Stock"
-                    ? "inventory__stock--instock "
-                    : "inventory__stock--outstock"
+                    ? "inventory__span--instock "
+                    : "inventory__span--outstock"
                 }`}
               >
-                {status}
-              </p>
+                <p
+                  className={`inventory__stock ${
+                    status === "In Stock"
+                      ? "inventory__stock--instock "
+                      : "inventory__stock--outstock"
+                  }`}
+                >
+                  {status}
+                </p>
+              </span>
             </div>
           </div>
           <div className="inventory__container-details">
