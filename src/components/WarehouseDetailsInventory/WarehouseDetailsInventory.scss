@@ -63,12 +63,11 @@
     align-items: center;
     margin: 0.5rem 0 0 0;
     height: 1.5rem;
-    max-width: 4.8125rem;
+    max-width: 7.5rem;
     border-radius: 1.25rem;
 
     @include tablet {
       margin: 0;
-      max-width: 4.25rem;
     }
 
     &--instock {
@@ -88,6 +87,12 @@
     line-height: 1.25rem;
     padding: 0.25rem 0.5rem;
     text-transform: uppercase;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0;
+    }
 
     &--instock {
       color: $supporting-green;
@@ -113,6 +118,11 @@
     font-size: 0.8125rem;
     line-height: 1.25rem;
     color: $secondary-slate;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
 
     &--blue {
       color: $primary-indigo;
