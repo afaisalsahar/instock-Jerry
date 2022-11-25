@@ -49,7 +49,10 @@ const WarehouseDetailsPage = () => {
               {singleWarehouse.warehouse_name}
             </h1>
           </div>
-          <Link to="/edit-warehouse/:id" className="warehouse-details__edit">
+          <Link
+            to={`/edit-warehouse/${id}`}
+            className="warehouse-details__edit"
+          >
             <img
               src={edit}
               alt="edit pencil"
