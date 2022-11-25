@@ -1,5 +1,6 @@
 import WarehouseCard from "../components/WarehouseCard/WarehouseCard";
 import WarehouseSearch from "../components/WarehouseSearch/WarehouseSearch";
+import WarehouseModal from "../components/WarehouseModal/WarehouseModal";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -24,6 +25,7 @@ function WarehouseList() {
         <section className="warehouse-list">
             <WarehouseSearch/>
             <WarehouseCard warehouseList={warehouseList}/>
+            <WarehouseModal />
         </section>
     )
 }

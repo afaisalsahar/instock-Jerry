@@ -10,7 +10,7 @@ function WarehouseSearch() {
                 <button className="warehouse-search__button">+ Add New Warehouse</button>
             </div>
             <div className="warehouse-header">
-                <div className="warehouse-header__container">
+                <div className="warehouse-header__container warehouse-header__name-container">
                     <h4 className="warehouse-header__title">Warehouse</h4>
                     <img className="warehouse-header__sort" src={sortIcon} alt="sort icon"/>
                 </div>
