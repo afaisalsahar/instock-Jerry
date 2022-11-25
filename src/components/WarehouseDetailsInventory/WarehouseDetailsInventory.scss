@@ -6,28 +6,134 @@
   // Containers
   &__container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+
+    @include tablet {
+      flex-wrap: nowrap;
+      width: 100%;
+      padding: 1rem 2rem;
+      align-items: center;
+    }
   }
 
-  &__container-row {
+  &__container-sub {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: baseline;
+      width: 40%;
+    }
+  }
+
+  &__container-chevron {
     display: flex;
     align-items: center;
-  }
-
-  &__container-text {
-    display: flex;
-    width: 50%;
-  }
-
-  // Links
-  &__link {
-    display: flex;
-    width: 50%;
     text-decoration: none;
   }
 
-  &__text {
+  &__container-details {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1rem 0;
+
+    @include tablet {
+      margin: 0;
+      width: 50%;
+    }
+  }
+
+  &__container-icons {
+    display: flex;
+    width: 100%;
+
+    @include tablet {
+      width: 20%;
+      justify-content: flex-end;
+    }
+  }
+
+  &__container-stock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0 0 0;
+    height: 1.5rem;
+    max-width: 4.8125rem;
+    border-radius: 1.25rem;
+
+    @include tablet {
+      margin: 0;
+      max-width: 4.25rem;
+    }
+
+    &--instock {
+      background-color: rgba(21, 132, 99, 0.07);
+    }
+
+    &--outstock {
+      background-color: rgba(201, 69, 21, 0.07);
+    }
+  }
+
+  // Texts
+  &__stock {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+
+    &--instock {
+      color: $supporting-green;
+    }
+
+    &--outstock {
+      color: $supporting-red;
+    }
+  }
+
+  &__header {
     text-transform: uppercase;
     color: $secondary-slate;
+    margin: 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    color: $secondary-slate;
+
+    &--blue {
+      color: $primary-indigo;
+    }
+  }
+
+  // Icons
+  &__image {
+    margin: 0.5rem 0 0 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+
+    &--edit {
+      justify-content: flex-end;
+    }
   }
 }
