@@ -1,0 +1,152 @@
+// load partials
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse {
+    &__header {
+        @extend .flex-container;
+        border-bottom: 1px solid $secondary-cloud;
+        padding: $size-increment-x2;
+
+        @include tablet {
+            justify-content: flex-start;
+            padding: $size-increment-x2 $size-increment-x3 0;
+        }
+    }
+
+    &__back {
+        margin-right: $size-increment-x1-2;
+    }
+
+    &__arrow {
+        vertical-align: middle;
+    }
+
+    &__details,
+    &__contact,
+    &__action {
+        padding: $size-increment-x3;
+    }
+
+    &__form {
+        flex: 100% 1 1;
+    }
+
+    &__inputs {
+        flex: 100% 1 1;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__details,
+    &__contact {
+        flex: 100% 1 1;
+        @include tablet {
+            flex: 50% 1 1;
+        }
+    }
+
+    &__details {
+        border-bottom: 1px solid $secondary-cloud;
+
+        @include tablet {
+            border-bottom: none;
+            border-right: 1px solid $secondary-cloud;
+        }
+    }
+
+    &__subtitle,
+    &__field {
+        padding-bottom: $size-increment-x2;
+    }
+
+    &__field {
+        @include tablet {
+            padding-bottom: $size-increment-x2-1;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: $size-increment-x1;
+    }
+
+    &__input {
+        @extend .form-input;
+
+        margin-bottom: $size-increment-x1;
+
+        &--error {
+            border-color: $supporting-red;
+        }
+    }
+
+    &__error {
+        color: $supporting-red;
+        font-weight: 700;
+
+        &:before {
+            content: "!";
+            background-color: $supporting-red;
+            color: white;
+            width: $size-increment-x2-1;
+            height: $size-increment-x2-1;
+            display: inline-block;
+            border-radius: 50%;
+            text-align: center;
+            margin-right: $size-increment-x2;
+        }
+    }
+
+    &__action {
+        @extend .flex-container;
+        column-gap: 5%;
+
+        @include tablet {
+            justify-content: flex-end;
+            column-gap: $size-increment-x3;
+        }
+    }
+    
+    &__submit,
+    &__cancel {
+        flex: 50% 1 1;
+        @extend .call-to-action;
+    }
+
+    &__submit {
+        @include tablet {
+            flex: 28% 0 1;
+        }
+
+        @media screen and (min-width: 850px) {
+            flex-basis: 24%;
+        }
+
+        @media screen and (min-width: 950px) {
+            flex-basis: 20%;
+
+        }
+    }
+
+    &__cancel {
+        text-decoration: none;
+        background-color: $primary-white;
+        color: $secondary-slate;
+        border: 1px solid $secondary-slate;
+
+        &:hover {
+            background-color: $primary-white;
+            color: $primary-indigo;
+            border-color: $primary-indigo;
+        }
+
+        @include tablet {
+            flex: 15% 0 1;
+        }
+    }
+}
