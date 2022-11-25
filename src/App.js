@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
+import AddWarehousePage from './pages/AddWarehouse/AddWarehouse'
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WarehouseList from "./pages/WarehouseList";
@@ -13,11 +14,15 @@ function App() {
         <Routes>
           <Route path="/" element={<WarehouseList />} />
           <Route path="/warehouses" element={<WarehouseDetailsPage />} />
-          <Route path="/warehouses/edit-warehouse/:id" element />
           <Route path="/warehouses/:id" element />
+          <Route path="/warehouses/:id/edit" element />
+          <Route path="/warehouses/add" element={<AddWarehousePage />}/>
+
           <Route path="/inventories" element />
-          <Route path="/inventories/add-inventory-item/:id" element />
           <Route path="/inventories/:id" element />
+          <Route path="/inventories/:id/edit" element />
+          <Route path="/inventories/add" element />
+          
           <Route path="/*" element />
         </Routes>
       </main>
