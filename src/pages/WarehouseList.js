@@ -11,8 +11,9 @@ const PORT = process.env.REACT_APP_PORT;
 function WarehouseList() {
     const [warehouseList, setWarehouseList] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+    const [warehouseName, setWarehouseName] = useState(null);
 
-    console.log(warehouseList)
     
     useEffect(() => {
         axios.get(`${URL}${PORT}/warehouses`)
@@ -22,13 +23,13 @@ function WarehouseList() {
         .catch((err) => {
             console.log(err)
         })
-    },[])
+    },[warehouseList])
 
     return(
         <section className="warehouse-list">
             <WarehouseSearch/>
-            <WarehouseCard warehouseList={warehouseList} setIsOpen={setIsOpen} />
-            <WarehouseModal isOpen={isOpen} setIsOpen={setIsOpen} />
+            <WarehouseCard warehouseList={warehouseList} setIsOpen={setIsOpen} setSelectedWarehouse={setSelectedWarehouse} setWarehouseName={setWarehouseName}/>
+            <WarehouseModal isOpen={isOpen} setIsOpen={setIsOpen} selectedWarehouse={selectedWarehouse} warehouseName={warehouseName} />
         </section>
     )
 }

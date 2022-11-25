@@ -5,9 +5,14 @@ import "./WarehouseCard.scss";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function WarehouseCard({ warehouseList, setIsOpen}) {
+function WarehouseCard({ warehouseList, setIsOpen, setSelectedWarehouse, setWarehouseName }) {
 
     const navigate = useNavigate();
+    const handleDelete = (event, name) => {
+        setIsOpen(true)
+        setSelectedWarehouse(event)
+        setWarehouseName(name)
+    };
     return(
         warehouseList.map((warehouse) => {
             return(
@@ -32,7 +37,7 @@ function WarehouseCard({ warehouseList, setIsOpen}) {
                     <p className="warehouse-card__contact-info">{warehouse.contact_phone} {warehouse.contact_email}</p>
                 </div>
                 <div className="warehouse-card__icon-container">
-                    <img onClick={() => setIsOpen(true)} className="warehouse-card__delete" src={deleteLogo} alt="delete icon"/>
+                    <img onClick={() => handleDelete(warehouse.id, warehouse.warehouse_name)} className="warehouse-card__delete" src={deleteLogo} alt="delete icon"/>
                     <img onClick={() => navigate(`/warehouses/edit-warehouse/${warehouse.id}`)} className="warehouse-card__edit" src={editLogo} alt="edit icon"/>
                 </div>
             </article>
