@@ -1,34 +1,71 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
+import WarehouseDetailsInventory from "../../components/WarehouseDetailsInventory/WarehouseDetailsInventory";
+import WarehouseDetailsHeaders from "../../components/WarehouseDetailsHeaders/WarehouseDetailsHeaders";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import edit from "../../assets/images/Icons/edit_white-24px.svg";
 import "./WarehouseDetailsPage.scss";
 
+const PORT = process.env.REACT_APP_PORT;
+const URL = process.env.REACT_APP_URL;
+
 const WarehouseDetailsPage = () => {
+  const [singleWarehouse, setSingleWarehouse] = useState({});
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`${URL}${PORT}/warehouses`)
+      .then(({ data }) => {
+        return axios.get(`${URL}${PORT}/warehouses/${!id ? data[0].id : id}`);
+      })
+      .then(({ data }) => {
+        setSingleWarehouse(data);
+      })
+      .catch((err) => console.error(err));
+  }, [id]);
+
   return (
-    <section className="warehouse-details">
-      <div className="warehouse-details__container-headers">
-        <div className="warehouse-details__container-header">
-          <Link to="/" className="warehouse-details__arrow">
+    <Fragment>
+      <section className="warehouse-details">
+        <div className="warehouse-details__container-headers">
+          <div className="warehouse-details__container-header">
+            <Link to="/" className="warehouse-details__arrow">
+              <img
+                src={backArrow}
+                alt="back arrow"
+                className="warehouse-details__arrow-image"
+              />
+            </Link>
+            <h1 className="warehouse-details__title">
+              {singleWarehouse.warehouse_name}
+            </h1>
+          </div>
+          <Link to="/edit-warehouse/:id" className="warehouse-details__edit">
             <img
-              src={backArrow}
-              alt="back arrow"
-              className="warehouse-details__arrow-image"
+              src={edit}
+              alt="edit pencil"
+              className="warehouse-details__edit-img"
             />
+            <p className="warehouse-details__edit-text">Edit</p>
           </Link>
-          <h1 className="warehouse-details__title">Washington</h1>
         </div>
-        <Link to="/edit-warehouse/:id" className="warehouse-details__edit">
-          <img
-            src={edit}
-            alt="edit pencil"
-            className="warehouse-details__edit-img"
-          />
-          <p className="warehouse-details__edit-text">Edit</p>
-        </Link>
-      </div>
-      <WarehouseDetails />
-    </section>
+        <WarehouseDetails
+          address={singleWarehouse.address}
+          city={singleWarehouse.city}
+          country={singleWarehouse.country}
+          contactName={singleWarehouse.contact_name}
+          position={singleWarehouse.contact_position}
+          phone={singleWarehouse.contact_phone}
+          email={singleWarehouse.contact_email}
+        />
+        <WarehouseDetailsHeaders />
+      </section>
+      <WarehouseDetailsInventory />
+    </Fragment>
   );
 };
 

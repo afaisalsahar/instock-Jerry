@@ -9,6 +9,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    &:hover {
+        background-color: RGBA(46,102,229,0.07);
+    }
+
     @include tablet {
         flex-wrap: nowrap;
         justify-content: space-between;
@@ -29,6 +33,11 @@
     &__warehouse {
         color: $primary-indigo;
         margin: 0 0 0 1rem;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration-line: underline;
+        }
     }
 
     &__contact-name, &__contact-info, &__address {
@@ -90,16 +99,3 @@
         width: 1.5rem;
     }
 }
-
-// Hover state
-
-// Warehouse Card
-article.warehouse-card:hover {
-    background-color: RGBA(46,102,229,0.07);
-}
-
-// Warehouse Name
-p.warehouse-card__warehouse:hover {
-    text-decoration-line: underline;
-}
-
