@@ -1,24 +1,32 @@
 import "./WarehouseDetails.scss";
 
-const WarehouseDetails = () => {
+const WarehouseDetails = ({
+  address,
+  city,
+  country,
+  contactName,
+  position,
+  phone,
+  email,
+}) => {
   return (
     <div className="warehouse-details__container-info">
       <div className="warehouse-details__container-address">
         <h4 className="warehouse-details__head">warehouse address:</h4>
         <p className="warehouse-details__text">
-          33 Pearl Street SW, Washington, USA
+          {address}, {city}, {country}
         </p>
       </div>
       <div className="warehouse-details__container-contact">
         <div className="warehouse-details__container-details warehouse-details__container-details--left">
           <h4 className="warehouse-details__head">contact name:</h4>
-          <p className="warehouse-details__text">Graeme Lyon</p>
-          <p className="warehouse-details__text">Warehouse Manager</p>
+          <p className="warehouse-details__text">{contactName}</p>
+          <p className="warehouse-details__text">{position}</p>
         </div>
         <div className="warehouse-details__container-details warehouse-details__container-details--right">
           <h4 className="warehouse-details__head">contact information:</h4>
-          <p className="warehouse-details__text">+1 (647) 504-0911</p>
-          <p className="warehouse-details__text">glyon@instock.com</p>
+          <p className="warehouse-details__text">{phone}</p>
+          <p className="warehouse-details__text">{email}</p>
         </div>
       </div>
     </div>

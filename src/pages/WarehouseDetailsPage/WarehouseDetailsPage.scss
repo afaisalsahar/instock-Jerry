@@ -75,4 +75,29 @@
       padding: 0 0 0 0.5rem;
     }
   }
+
+  // Headers
+  &__container-headings {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: rgba(247, 248, 249, 0.7);
+      padding: 0 2rem;
+    }
+  }
+
+  &__container-heading {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      width: 20%;
+
+      &--end {
+        justify-content: flex-end;
+      }
+    }
+  }
 }
