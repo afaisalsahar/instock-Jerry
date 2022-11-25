@@ -1,13 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 import WarehouseDetailsInventory from "../../components/WarehouseDetailsInventory/WarehouseDetailsInventory";
+import WarehouseDetailsHeaders from "../../components/WarehouseDetailsHeaders/WarehouseDetailsHeaders";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import edit from "../../assets/images/Icons/edit_white-24px.svg";
 import "./WarehouseDetailsPage.scss";
-import sortIcon from "../../assets/images/Icons/sort-24px.svg";
-import { Fragment } from "react";
+
+const PORT = process.env.REACT_APP_PORT;
+const URL = process.env.REACT_APP_URL;
 
 const WarehouseDetailsPage = () => {
+  const [singleWarehouse, setSingleWarehouse] = useState({});
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`${URL}${PORT}/warehouses`)
+      .then(({ data }) => {
+        return axios.get(`${URL}${PORT}/warehouses/${!id ? data[0].id : id}`);
+      })
+      .then(({ data }) => {
+        setSingleWarehouse(data);
+      })
+      .catch((err) => console.error(err));
+  }, [id]);
+
   return (
     <Fragment>
       <section className="warehouse-details">
@@ -20,7 +40,9 @@ const WarehouseDetailsPage = () => {
                 className="warehouse-details__arrow-image"
               />
             </Link>
-            <h1 className="warehouse-details__title">Washington</h1>
+            <h1 className="warehouse-details__title">
+              {singleWarehouse.warehouse_name}
+            </h1>
           </div>
           <Link to="/edit-warehouse/:id" className="warehouse-details__edit">
             <img
@@ -31,44 +53,16 @@ const WarehouseDetailsPage = () => {
             <p className="warehouse-details__edit-text">Edit</p>
           </Link>
         </div>
-        <WarehouseDetails />
-        <div className="warehouse-details__container-headings">
-          <div className="warehouse-details__container-heading">
-            <h4 className="warehouse-details__headers">inventory</h4>
-            <img
-              src={sortIcon}
-              alt="sort"
-              className="warehouse-details__sort"
-            />
-          </div>
-          <div className="warehouse-details__container-heading ">
-            <h4 className="warehouse-details__headers">category</h4>
-            <img
-              src={sortIcon}
-              alt="sort"
-              className="warehouse-details__sort"
-            />
-          </div>
-          <div className="warehouse-details__container-heading ">
-            <h4 className="warehouse-details__headers">status</h4>
-            <img
-              src={sortIcon}
-              alt="sort"
-              className="warehouse-details__sort"
-            />
-          </div>
-          <div className="warehouse-details__container-heading warehouse-details__container-heading--padded">
-            <h4 className="warehouse-details__headers">quantity</h4>
-            <img
-              src={sortIcon}
-              alt="sort"
-              className="warehouse-details__sort"
-            />
-          </div>
-          <div className="warehouse-details__container-heading warehouse-details__container-heading--end">
-            <h4 className="warehouse-details__headers">action</h4>
-          </div>
-        </div>
+        <WarehouseDetails
+          address={singleWarehouse.address}
+          city={singleWarehouse.city}
+          country={singleWarehouse.country}
+          contactName={singleWarehouse.contact_name}
+          position={singleWarehouse.contact_position}
+          phone={singleWarehouse.contact_phone}
+          email={singleWarehouse.contact_email}
+        />
+        <WarehouseDetailsHeaders />
       </section>
       <WarehouseDetailsInventory />
     </Fragment>
