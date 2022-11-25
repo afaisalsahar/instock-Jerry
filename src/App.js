@@ -12,18 +12,12 @@ function App() {
       <Header />
       <main className="app">
         <Routes>
-<<<<<<< HEAD
-          <Route path="/" element={<WarehouseList />} />
-          <Route path="/warehouses" element={<WarehouseList />} />
-          <Route path="/warehouses/:id" element />
-=======
           <Route
             path="/"
             element={<Navigate to="/warehouses" replace={true} />}
           />
           <Route path="/warehouses" element={<WarehouseList />} />
           <Route path="/warehouses/:id" element={<WarehouseDetailsPage />} />
->>>>>>> develop
           <Route path="/warehouses/:id/edit" element />
           <Route path="/warehouses/add" element={<AddWarehousePage />} />
 

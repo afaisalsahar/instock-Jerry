@@ -9,33 +9,10 @@ const URL = process.env.REACT_APP_URL;
 const PORT = process.env.REACT_APP_PORT;
 
 function WarehouseList() {
-<<<<<<< HEAD:src/pages/WarehouseList/WarehouseList.js
-    const [warehouseList, setWarehouseList] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedWarehouse, setSelectedWarehouse] = useState(null);
-    const [warehouseName, setWarehouseName] = useState(null);
-
-    
-    useEffect(() => {
-        axios.get(`${URL}${PORT}/warehouses`)
-        .then((response) => {
-            setWarehouseList(response.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    },[warehouseList])
-
-    return(
-        <section className="warehouse-list">
-            <WarehouseSearch/>
-            <WarehouseCard warehouseList={warehouseList} setIsOpen={setIsOpen} setSelectedWarehouse={setSelectedWarehouse} setWarehouseName={setWarehouseName}/>
-            <WarehouseModal isOpen={isOpen} setIsOpen={setIsOpen} selectedWarehouse={selectedWarehouse} warehouseName={warehouseName} />
-        </section>
-    )
-=======
   const [warehouseList, setWarehouseList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+  const [warehouseName, setWarehouseName] = useState(null);
 
   useEffect(() => {
     axios
@@ -46,16 +23,25 @@ function WarehouseList() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [warehouseList]);
 
   return (
     <section className="warehouse-list">
       <WarehouseSearch />
-      <WarehouseCard warehouseList={warehouseList} setIsOpen={setIsOpen} />
-      <WarehouseModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <WarehouseCard
+        warehouseList={warehouseList}
+        setIsOpen={setIsOpen}
+        setSelectedWarehouse={setSelectedWarehouse}
+        setWarehouseName={setWarehouseName}
+      />
+      <WarehouseModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        selectedWarehouse={selectedWarehouse}
+        warehouseName={warehouseName}
+      />
     </section>
   );
->>>>>>> develop:src/pages/WarehouseList.js
 }
 
 export default WarehouseList;
