@@ -9,13 +9,12 @@ function InventoryCard({ inventoryList }) {
     return(
         inventoryList.map((inventory) => {
             return(
-        
                  <div key={inventory.id} className='inventory-card' >
-                     <div className='inventory-card__container'>
+                     <div className='inventory-card__container inventory-card__container--items'>
                          <h3 className='inventory-card__title inventory-card__title--hidden'>INVENTORY ITEM</h3>
                          <Link to={'/inventories/' + inventory.id} className='inventory-card__link'>{inventory.item_name}<img src={chevronLogo} alt='Chevron Logo'/></Link>
                      </div>
-                      <div className='inventory-card__container'>
+                      <div className='inventory-card__container inventory-card__container--status'>
                          <h3 className='inventory-card__title inventory-card__title--hidden'>STATUS</h3>
                          <p className={inventory.status === 'In Stock' ? 'inventory-card__status inventory-card__status--is' : 'inventory-card__status inventory-card__status--oos'}>{inventory.status}</p>
                      </div>
@@ -23,11 +22,11 @@ function InventoryCard({ inventoryList }) {
                          <h3 className='inventory-card__title inventory-card__title--hidden'>CATEGORY</h3>
                          <p className='inventory-card__paragraph'>{inventory.category}</p>
                      </div>
-                     <div className='inventory-card__container'>
+                     <div className='inventory-card__container inventory-card__container--qty'>
                          <h3 className='inventory-card__title inventory-card__title--hidden'>QTY</h3>
                          <p className='inventory-card__paragraph'>{inventory.quantity}</p>
                      </div>
-                     <div className='inventory-card__container inventory-card__container--margin'>
+                     <div className='inventory-card__container inventory-card__container--margin inventory-card__container--warehouse'>
                          <h3 className='inventory-card__title inventory-card__title--hidden'>WAREHOUSE</h3>
                          <p className='inventory-card__paragraph'>{inventory.warehouse_name}</p>
                      </div>

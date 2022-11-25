@@ -3,51 +3,60 @@
 
 .inventory-card {
     border-top: .0625rem solid $secondary-cloud;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1.5rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
 
     @include tablet {
         flex-wrap: nowrap;
-        justify-content: space-between;
         border: none;
         border-bottom: .0625rem solid $secondary-cloud;
+        padding: 1.5rem 2rem;
     }
 
     &__container {
-        width: 8.75rem;
-        margin: 0 0 .0625rem 0;
+        width: 50%;
+        margin: 0 0 1rem;
 
         @include tablet {
-            width: 11rem;
+            &--items {
+                width: 20%;
+            }
+            &--category {
+                width: 20%;
+            }
+            &--status {
+                width: 15%;
+            }
+            &--qty {
+                width: 15%;
+            }
         }
-
-        @include desktop {
-            width: 9rem;
-        }
-
-        &--margin {
-            margin-left: auto;
+        &--warehouse {
+            margin-left: 50%;
 
             @include tablet {
                 margin-left: 0;
+                width: 20%;
             }
         }
-
         &--buttons {
-            width: 100%;
             display: flex;
             justify-content: space-between;
+            width: 100%;
+            margin-bottom: 0;
 
             @include tablet {
                 width: 10%;
             }
-            // margin: 0 1rem;
-            // flex-basis: 100%;
-            // order: 4;
+        }
+        &--items,
+        &--category {
+            @include tablet {
+            order: -1;
+            }
         }
     }
 
@@ -56,7 +65,7 @@
         font-size: .6875rem;
         font-weight: 600;
         line-height: 4px;
-        margin: 0 0 .25rem 0;
+        margin: 0 0 .75rem 0;
         @include tablet {
             display: none;
         }
@@ -128,6 +137,7 @@
         background-color: $primary-white;
         border: 0;
         cursor: pointer;
+        padding: 0;
     }
 }
 
