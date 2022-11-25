@@ -3,7 +3,7 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsP
 import AddWarehousePage from './pages/AddWarehouse/AddWarehouse'
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import WarehouseList from "./pages/WarehouseList";
+import WarehouseList from "./pages/WarehouseList/WarehouseList";
 import "./App.scss";
 
 function App() {

@@ -1,6 +1,6 @@
-import WarehouseCard from "../components/WarehouseCard/WarehouseCard";
-import WarehouseSearch from "../components/WarehouseSearch/WarehouseSearch";
-import WarehouseModal from "../components/WarehouseModal/WarehouseModal";
+import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
+import WarehouseSearch from "../../components/WarehouseSearch/WarehouseSearch";
+import WarehouseModal from "../../components/WarehouseModal/WarehouseModal";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
