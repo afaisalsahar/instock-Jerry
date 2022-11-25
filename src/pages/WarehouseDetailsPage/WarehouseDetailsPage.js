@@ -13,6 +13,7 @@ const URL = process.env.REACT_APP_URL;
 
 const WarehouseDetailsPage = () => {
   const [singleWarehouse, setSingleWarehouse] = useState({});
+  const [inventoryList, setInventoryList] = useState([]);
 
   const { id } = useParams();
 
@@ -20,10 +21,14 @@ const WarehouseDetailsPage = () => {
     axios
       .get(`${URL}${PORT}/warehouses`)
       .then(({ data }) => {
-        return axios.get(`${URL}${PORT}/warehouses/${!id ? data[0].id : id}`);
+        return axios.get(`${URL}${PORT}/warehouses/${!id ? data[2].id : id}`);
       })
       .then(({ data }) => {
         setSingleWarehouse(data);
+        return axios.get(`${URL}${PORT}/warehouses/${data.id}/inventories`);
+      })
+      .then(({ data }) => {
+        setInventoryList(data);
       })
       .catch((err) => console.error(err));
   }, [id]);
@@ -64,7 +69,17 @@ const WarehouseDetailsPage = () => {
         />
         <WarehouseDetailsHeaders />
       </section>
-      <WarehouseDetailsInventory />
+      {inventoryList.map((inventory) => {
+        return (
+          <WarehouseDetailsInventory
+            item={inventory.item_name}
+            category={inventory.category}
+            status={inventory.status}
+            quantity={inventory.quantity}
+            key={inventory.id}
+          />
+        );
+      })}
     </Fragment>
   );
 };

@@ -5,10 +5,6 @@ import Footer from "./components/Footer/Footer";
 import WarehouseList from "./pages/WarehouseList";
 import "./App.scss";
 
-// import environment variables
-const PORT = process.env.REACT_APP_PORT;
-const URL = process.env.REACT_APP_URL;
-
 function App() {
   return (
     <BrowserRouter>
