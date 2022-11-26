@@ -1,0 +1,37 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+// Reset fieldset styling
+fieldset {
+  border: 0;
+  padding: 0 0 0 0;
+  margin: 1rem 0 0 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+.inventory-add {
+  &__container-radio {
+    display: flex;
+  }
+
+  &__radio {
+    margin: 0 0.5rem 0 0;
+    border-color: rgba(189, 197, 213, 1);
+
+    &:focus + label {
+      color: rgba(19, 24, 44, 1);
+    }
+  }
+
+  &__label-radio {
+    color: rgba(92, 102, 126, 1);
+  }
+
+  &__container-option {
+    width: 50%;
+  }
+}
