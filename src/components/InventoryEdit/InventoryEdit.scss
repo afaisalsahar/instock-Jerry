@@ -41,7 +41,7 @@
     background-color: $primary-white;
 
     &__div{
-        padding: 0 1.5rem;
+        padding: 0;
         @include tablet{
             display: flex;
             padding: 0 2rem;
@@ -52,21 +52,25 @@
         }
     }
     &__left {
-            @include tablet{
-                width: 50%;
-                padding-right: 2rem;
-                margin-top: 2rem;
-            }
 
-            @include desktop{
-                width: 50%;
-                padding-right: 2rem;
-                margin-top: 2rem;
-            }
+        padding: 0 1.5rem;
+
+        @include tablet{
+            width: 50%;
+            padding: 0 2rem 0 1rem;
+            margin-top: 2rem;
+        }
+
+        @include desktop{
+            width: 50%;
+            padding-right: 2rem;
+            margin-top: 2rem;
+        }
     }    
 
     &__right {
         margin-top: 1.5rem;
+        padding: 0 1.5rem;
         border-top: 0.0625rem solid #bdc5d5;
         
         @include tablet{

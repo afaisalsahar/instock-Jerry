@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import arrowLogo from "../../assets/images/Icons/arrow_back-24px.svg";
 import "./InventoryEdit.scss";
@@ -9,34 +8,18 @@ import "./InventoryEdit.scss";
 // const URL = process.env.REACT_APP_URL;
 // const PORT = process.env.REACT_APP_PORT;
 
-const InventoryItemEdit = () => {
-    const [editItem, setEditItem] = useState([]);
-    const [hasQuantity, setHasQuantity] = useState(false);
-    const onChangeCheckBox = (e) => {
-    setHasQuantity(e.target.checked);
-  };
+const InventoryEdit = ({ inventoryDetails }) => {
+    const { id } = useParams();
+    // const [hasQuantity, setHasQuantity] = useState(false);
+  //   const onChangeCheckBox = (e) => {
+  //   setHasQuantity(e.target.checked);
+  // };
 
-    const [noQuantity, setNoQuantity] = useState("");
-    const onChangePromo = (e) => {
-    setNoQuantity(e.target.value);
-  };
-
-//     useEffect(() => {
-//         axios.get(`${URL}${PORT}/inventories`)
-//         .then((response) => {
-//             setEditItem(response.data)
-//         })
-//         .catch((err) => {
-//             console.log(err)
-//         })
-//     },[])
 
 //   initial state
-//      const state= {
-//           inStock: false
-//       };
-
-    // const [edit, setEdit] = useState();
+    //  const state= {
+    //       inStock: false
+    //   };
 
 //   change instock state
   const changeStockAvailabilityFalse = () => {
@@ -65,7 +48,7 @@ const InventoryItemEdit = () => {
     }
 
     axios
-      .post("http://localhost:8080/inventories/editInven", {
+      .put(`http://localhost:8080/inventories/${id}`, {
         itemName: itemName,
         description: description,
         category: category,
@@ -74,14 +57,14 @@ const InventoryItemEdit = () => {
       })
       .then((response) => {
         console.log(response);
-        this.handleAlert();
+        handleAlert();
       });
   };
 
-  // const handleAlert = ()=>{
-  //     alert("Edited item successfully!")
-  //     window.location = '/inventories'
-  // }
+    const handleAlert = ()=>{
+      alert("Edited item successfully!")
+      window.clicked('/inventories')
+  }
 
   return (
     <div className="outer__div">
@@ -97,6 +80,7 @@ const InventoryItemEdit = () => {
           className="editInven__form"
           onSubmit={handleSubmit}
         >
+
           <div className="editInven__div">
             <div className="editInven__left">
               <h2 className="editInven__title">Item Details</h2>
@@ -105,6 +89,7 @@ const InventoryItemEdit = () => {
                 className="editInven__uploadName menus"
                 type="text"
                 placeholder="Item name"
+                value={inventoryDetails.item_name}
               ></input>
               <h3 className="editInven__label">Description</h3>
               <textarea
@@ -112,6 +97,7 @@ const InventoryItemEdit = () => {
                 placeholder="Item Description"
                 name="descriptionInput"
                 type="text"
+                value={inventoryDetails.description}
               ></textarea>
               <h3 className="editInven__label">Category</h3>
               <select
@@ -119,6 +105,7 @@ const InventoryItemEdit = () => {
                 name="categoryInput"
                 id="categoryInput"
                 placeholder="Please select"
+                value={inventoryDetails.category}
               >
                 <option value="" disabled selected>
                   Please Select
@@ -137,7 +124,7 @@ const InventoryItemEdit = () => {
                 <input
                   type="radio"
                   name="stock"
-                  value="InStock"
+                  value={inventoryDetails.status}
                   onChange={changeStockAvailabilityTrue}
                 ></input>
                 <label className="button__label" for="InStock">
@@ -146,23 +133,32 @@ const InventoryItemEdit = () => {
                 <input
                   type="radio"
                   name="stockOrNoStock"
-                  value="OutofStock"
+                  value={inventoryDetails.status}
                   onChange={changeStockAvailabilityFalse}
                 ></input>
                 <label className="button__label" for="OutofStock">
                   Out of Stock
                 </label>
+                
                 <h3 className="editInven__label">Warehouse</h3>
                 <select
                   className="menus"
                   name="warehouseSelect"
                   id="warehouseSelect"
                   placeholder="Please Select"
+                  value={inventoryDetails.warehouse_name}
                 >
                   <option value="" disabled selected>
                     Please Select
                   </option>
-                  <option value="New York">New York</option>
+                  <option value="Boston">Boston</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="Washington">Washington</option>
+                  <option value="Santa Monica">Santa Monica</option>
+                  <option value="Jersey">Jersey</option>
+                  <option value="Seattle">Seattle</option>
+                  <option value="Miami">Miami</option>
+                  <option value="SF">SF</option>
                 </select>
               </div>
             </div>
@@ -186,4 +182,4 @@ const InventoryItemEdit = () => {
   );
 }
 
-export default InventoryItemEdit;
+export default InventoryEdit;
