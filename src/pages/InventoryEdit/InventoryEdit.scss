@@ -1,0 +1,238 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+
+
+.outer__div{
+    background: $primary-white;
+}
+
+.header{
+
+    &__div{
+        display: flex;
+        padding: .75rem 1.5rem .25rem 1.5rem;
+        border-bottom: .0625rem solid $secondary-cloud;
+        align-items: center;
+
+        @include tablet{
+            padding: 2rem 2rem 1.5rem 2rem;
+        }
+    }
+
+    &__arrow{
+        align-self: flex-start;
+        margin-top: .5rem;
+        margin-right: 1rem;
+    }
+
+    &__title {
+        @include tablet {
+           margin: 0;
+        }
+    }
+}
+
+
+
+.editInven {
+    box-shadow: 0 .0625rem .25rem 0 rgba(0,0,0,0.2);
+    background-color: $primary-white;
+
+    &__div{
+        padding: 0 1.5rem;
+        @include tablet{
+            display: flex;
+            padding: 0 2rem;
+        }
+        @include desktop{
+            display: flex;
+            padding: 0 2rem;
+        }
+    }
+    &__left {
+            @include tablet{
+                width: 50%;
+                padding-right: 2rem;
+                margin-top: 2rem;
+            }
+
+            @include desktop{
+                width: 50%;
+                padding-right: 2rem;
+                margin-top: 2rem;
+            }
+    }    
+
+    &__right {
+        margin-top: 1.5rem;
+        border-top: 0.0625rem solid #bdc5d5;
+        
+        @include tablet{
+            padding-left: 2rem;
+            width: 50%;
+            border-left: .0625rem solid $secondary-cloud;
+            margin-top: 2rem;
+            border-top: none;
+            }
+
+        @include desktop{
+            padding-left: 2rem;
+            width: 50%;
+            border-left: .0625rem solid $secondary-cloud;
+            margin-top: 2rem;
+        }
+    }
+
+    &__title {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            @include tablet{
+                margin-top: 0;
+            }
+        }
+
+    &__label {
+            margin-bottom: .25rem;
+            margin-top: 1rem;
+        }
+
+    &__uploadName {
+        flex-basis: 100%;
+        border-radius: 20px;
+        border: none;
+        border: 1px solid $secondary-cloud;
+        height: 2.25rem;
+        padding: 0 1rem;
+        }
+
+    &__button{
+        display: flex;
+        padding: 1rem 0;
+        margin-top: 1rem;
+        background-color: $background-light-grey;
+        justify-content: center;
+        width: 100%;
+        @include tablet{
+            justify-content: end;
+            padding-right: 2rem;
+        }
+        @include desktop{
+            justify-content: end;
+            padding-right: 2rem;
+            margin-top: 2rem;
+        }
+        
+    }
+
+    &__cancel{
+        height: 2.25rem;
+        padding: .35rem 1rem 0;
+        border-radius: 1.25rem;
+        width: 40%;
+        background-color: $primary-white;
+        border: 1px solid $secondary-cloud;
+        margin-right: 1rem;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        font-size: .80rem;
+        color: $secondary-slate;
+        @include tablet{
+            height: 2.375rem;
+            width: auto;
+        }
+        @include desktop{
+            height: 2.375rem;
+            width: auto;
+        }
+    }
+
+    &__add {
+        height: 2.25rem;
+        padding: 0 1rem;
+        border-radius: 1.25rem;
+        border: none;
+        width: 40%;
+        color: $primary-white;
+        background-color: $primary-indigo;
+        
+        @include tablet {
+            height: 2.375rem;
+            width: auto;
+        }
+        @include desktop{
+            height: 2.375rem;
+            width: auto;
+        }
+    }
+}
+
+.dropdown {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding: .375rem 1rem;
+    box-sizing: border-box;
+    border-color: $secondary-cloud;
+    color: $secondary-slate;
+
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-family: "titillium-semi-bold";
+    font-weight: 600;
+    
+
+    @include tablet{
+        height: 2.375rem;
+    }
+    &-description{
+        height: 120px;
+        @include tablet{
+            height: 7.5rem;
+        }
+    }
+}
+
+.editItem__quantity{
+    @include desktop{
+        width: 7.625rem;
+    }
+}
+
+.button__label {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-family: "titillium-semi-bold";
+    font-weight: 600;
+    color: $secondary-slate;
+    margin-right: 4rem;
+
+    &::selection{
+        color: $primary-black;
+    }
+
+}
+
+
+.menus {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding: .375rem 1rem;
+    box-sizing: border-box;
+    border-color: $secondary-cloud;
+    color: $secondary-slate;
+
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-family: "titillium-semi-bold";
+    font-weight: 600;
+}
+
+
+.menus-description {
+    height: 6rem;
+    resize: none;
+}

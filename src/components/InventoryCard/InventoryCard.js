@@ -6,6 +6,7 @@ import chevronLogo from '../../assets/images/Icons/chevron_right-24px.svg';
 import './InventoryCard.scss'
 
 function InventoryCard({ inventoryList }) {
+    
     return(
         inventoryList.map((inventory) => {
             return(
@@ -32,7 +33,7 @@ function InventoryCard({ inventoryList }) {
                      </div>
                     <div className='inventory-card__container inventory-card__container--buttons'>
                          <button onClick className='inventory-card__button btn-openModal'><img src={deleteLogo} alt='Delete Logo'/></button>
-                         <Link className='inventory-card__button' to={'/inventories/edit/' + inventory.id}><img src={editLogo} alt='Edit Logo'/></Link>
+                         <Link className='inventory-card__button' to={`/inventories/${inventory.id}/edit`}><img src={editLogo} alt='Edit Logo'/></Link>
                      </div> 
                  </div>
                 
