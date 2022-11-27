@@ -18,6 +18,10 @@
     @include tablet {
       margin-left: 2rem;
     }
+
+    @include desktop {
+      margin-left: 2.5rem;
+    }
   }
 
   &__arrow {
@@ -39,21 +43,55 @@
   &__container-fields {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
   }
 
   &__container-details {
     display: flex;
     flex-direction: column;
     border-bottom: 0.0938rem solid $secondary-cloud;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+
+    @include tablet {
+      border-bottom: none;
+      padding: 2rem 0 2rem 2rem;
+      width: 100%;
+    }
+
+    @include desktop {
+      padding: 2rem 0 2rem 2.5rem;
+    }
 
     &--bottom {
       border-bottom: none;
     }
   }
 
+  &__container-border {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.5rem;
+
+    @include tablet {
+      padding-right: 2rem;
+    }
+
+    @include desktop {
+      padding-right: 2.5rem;
+    }
+
+    &--left {
+      @include tablet {
+        border-right: 0.0938rem solid $secondary-cloud;
+      }
+    }
+  }
+
   &__heading {
-    margin: 1rem 0 0.75rem 0;
+    margin: 0;
   }
 
   &__label {
