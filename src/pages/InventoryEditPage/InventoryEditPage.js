@@ -1,32 +1,80 @@
 import InventoryEdit from "../../components/InventoryEdit/InventoryEdit";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
 
-
-// ENV variables
-const URL = process.env.REACT_APP_URL;
-const PORT = process.env.REACT_APP_PORT;
 
 function InventoryEditPage () {
-  const {id} = useParams();
-  const [inventoryDetails, setInventoryDetails] = useState([null]);
 
-  useEffect(() => {
-    axios.get(`${URL}${PORT}/inventories/${id}`)
-    .then((response) => {
-        setInventoryDetails(response.data)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-},[id])
 
   return (
     <>
-      <InventoryEdit inventoryDetails={inventoryDetails} />
+      <InventoryEdit />
     </>
   )
 }
 
 export default InventoryEditPage;
+
+
+
+
+// import InventoryEdit from "../../components/InventoryEdit/InventoryEdit.js";
+
+// import { useState, useEffect } from "react";
+
+// import { useParams} from "react-router-dom";
+
+
+
+// import axios from "axios";
+
+// const InventoryEditPage = () => {
+
+//     const urlForInventoryItem = "http://localhost:8000/inventories/"
+  
+//     const [inventoryToDisplay, setInventoryToDisplay] = useState(null);
+  
+//     const { id } = useParams();
+  
+//     useEffect(() => {
+//       axios.get(urlForInventoryItem + id).then((response) => {
+//         setInventoryToDisplay(response.data);
+//       }).catch((err)=>{
+//         console.log(err)
+//       });
+//     }, [id]);
+
+//     const urlForWarehouseList = "http://localhost:8000/warehouses";
+
+//     const [warehouseToDisplay, setwarehouseToDisplay] = useState(null);
+  
+//     useEffect(() => {
+//       axios
+//         .get(urlForWarehouseList)
+//         .then((response) => {
+//           setwarehouseToDisplay(response.data);
+//         })
+//         .catch((err) => {
+//           console.log(err);
+//         });
+//     }, []);
+
+
+//     if(!inventoryToDisplay || !warehouseToDisplay){
+//         return <div>Loading....</div>
+//     }
+
+
+//     const warehouseFilter = warehouseToDisplay.map((warehouse)=>{
+//         return {
+//             warehouse_name: warehouse.warehouse_name,
+//             id: warehouse.id
+//         }
+//     })
+
+//     return (
+//         <div className="inventory">
+//             <InventoryEdit warehouseFilter={warehouseFilter} inventoryToDisplay={inventoryToDisplay}/>
+//         </div>
+//         );
+// };
+
+// export default InventoryEditPage;
