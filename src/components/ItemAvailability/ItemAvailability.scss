@@ -34,4 +34,13 @@ legend {
   &__container-option {
     width: 50%;
   }
+
+  &__container-quantity {
+    display: flex;
+    flex-direction: column;
+
+    &--hidden {
+      display: none;
+    }
+  }
 }

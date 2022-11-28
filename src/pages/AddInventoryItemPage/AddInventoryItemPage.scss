@@ -126,4 +126,20 @@
     background-position: right 1rem center;
     background-size: 1rem;
   }
+
+  // Error state
+  &__container-error {
+    display: flex;
+    margin-top: 0.5rem;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__error-text {
+    color: $supporting-red;
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+  }
 }
