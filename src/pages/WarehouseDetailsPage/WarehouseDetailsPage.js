@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
@@ -20,6 +20,7 @@ const WarehouseDetailsPage = () => {
   const [selectedInventId, setSelectedInventId] = useState(null);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -42,13 +43,12 @@ const WarehouseDetailsPage = () => {
       <section className="warehouse-details">
         <div className="warehouse-details__container-headers">
           <div className="warehouse-details__container-header">
-            <Link to="/" className="warehouse-details__arrow">
-              <img
-                src={backArrow}
-                alt="back arrow"
-                className="warehouse-details__arrow-image"
-              />
-            </Link>
+            <img
+              onClick={() => navigate(-1)}
+              src={backArrow}
+              alt="back arrow"
+              className="warehouse-details__arrow-image"
+            />
             <h1 className="warehouse-details__title">
               {singleWarehouse.warehouse_name}
             </h1>
@@ -89,16 +89,15 @@ const WarehouseDetailsPage = () => {
             setSelectedInventory={setSelectedInventory}
             setSelectedInventId={setSelectedInventId}
           />
-          
         );
       })}
       <WarehouseInventoryModal
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      itemName={selectedInventory}
-      itemId={selectedInventId}
-      warehouseName={singleWarehouse.warehouse_name}
-      warehouseId={singleWarehouse.id}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        itemName={selectedInventory}
+        itemId={selectedInventId}
+        warehouseName={singleWarehouse.warehouse_name}
+        warehouseId={singleWarehouse.id}
       />
     </Fragment>
   );

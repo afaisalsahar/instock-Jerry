@@ -145,13 +145,12 @@ function EditWarehouse() {
     <div className="warehouse">
       <div className="warehouse__container">
         <div className="warehouse__header">
-          <Link className="warehouse__back" to="/">
-            <img
-              className="warehouse__arrow"
-              src={backArrow}
-              alt="back arrow"
-            />
-          </Link>
+          <img
+            onClick={() => navigate(-1)}
+            className="warehouse__arrow"
+            src={backArrow}
+            alt="back arrow"
+          />
           <h1 className="warehouse__title">Edit Warehouse</h1>
         </div>
         <form className="warehouse__form" onSubmit={handleFormSubmit}>
