@@ -28,6 +28,9 @@ const AddInventoryItemPage = () => {
   // Making instance of useNavigate
   const navigate = useNavigate();
 
+  // Sets quantity to default "0" if inventory is Out of Stock
+  if (status === "outStock") inputValues.quantity = "0";
+
   // Assigning input values to initialValues
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +65,7 @@ const AddInventoryItemPage = () => {
           category: inputValues.category,
           status: inputValues.status,
           warehouse_id: inputValues.warehouse_id,
-          quantity: inputValues.quantity,
+          quantity: String(inputValues.quantity),
         })
         .then(() => {
           navigate("/inventories");
