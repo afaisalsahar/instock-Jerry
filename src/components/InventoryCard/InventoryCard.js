@@ -5,8 +5,17 @@ import deleteLogo from '../../assets/images/Icons/delete_outline-24px.svg';
 import chevronLogo from '../../assets/images/Icons/chevron_right-24px.svg';
 import './InventoryCard.scss'
 
+<<<<<<< HEAD
+function InventoryCard({ inventoryList, setIsOpen, setSelectedInventory, setInventoryName }) {
+
+    const handleDelete = (event, name) => {
+        setIsOpen(true)
+        setSelectedInventory(event)
+        setInventoryName(name)
+    };
+=======
 function InventoryCard({ inventoryList }) {
-    
+>>>>>>> develop
     return(
         inventoryList.map((inventory) => {
             return(
@@ -32,8 +41,12 @@ function InventoryCard({ inventoryList }) {
                          <p className='inventory-card__paragraph'>{inventory.warehouse_name}</p>
                      </div>
                     <div className='inventory-card__container inventory-card__container--buttons'>
+<<<<<<< HEAD
+                         <button onClick={() => handleDelete(inventory.id, inventory.item_name)} className='inventory-card__button btn-openModal'><img src={deleteLogo} alt='Delete Logo'/></button>
+=======
                          <button onClick className='inventory-card__button btn-openModal'><img src={deleteLogo} alt='Delete Logo'/></button>
-                         <Link className='inventory-card__button' to={`/inventories/${inventory.id}/edit`}><img src={editLogo} alt='Edit Logo'/></Link>
+>>>>>>> develop
+                         <Link className='inventory-card__button' to={'/inventories/edit/' + inventory.id}><img src={editLogo} alt='Edit Logo'/></Link>
                      </div> 
                  </div>
                 
