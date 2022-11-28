@@ -89,7 +89,7 @@ const AddInventoryItemPage = () => {
     <form className="inventory-add" onSubmit={onSubmit}>
       <div className="inventory-add__container-headers">
         <div className="inventory-add__container-header">
-          <Link to={`/inventories`} className="inventory-add__arrow">
+          <Link to="/inventories" className="inventory-add__arrow">
             <img
               src={backArrow}
               alt="back arrow"
