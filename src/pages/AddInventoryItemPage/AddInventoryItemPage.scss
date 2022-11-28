@@ -1,0 +1,145 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-add {
+  // Header
+  &__container-headers {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 1.5rem 0;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+  }
+
+  &__container-header {
+    display: flex;
+    align-items: center;
+    margin: 0 1.5rem;
+
+    @include tablet {
+      margin-left: 2rem;
+    }
+
+    @include desktop {
+      margin-left: 2.5rem;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    height: 1.5rem;
+  }
+
+  &__arrow-image {
+    margin: 0 0.5rem 0 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  // Form
+  &__container-fields {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__container-details {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.0938rem solid $secondary-cloud;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+
+    @include tablet {
+      border-bottom: none;
+      padding: 2rem 0 2rem 2rem;
+      width: 100%;
+    }
+
+    @include desktop {
+      padding: 2rem 0 2rem 2.5rem;
+    }
+
+    &--bottom {
+      border-bottom: none;
+    }
+  }
+
+  &__container-border {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.5rem;
+
+    @include tablet {
+      padding-right: 2rem;
+    }
+
+    @include desktop {
+      padding-right: 2.5rem;
+    }
+
+    &--left {
+      @include tablet {
+        border-right: 0.0938rem solid $secondary-cloud;
+      }
+    }
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__label {
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  &__input {
+    border: rgba(189, 197, 213, 1) solid 0.0625rem;
+    border-radius: 1.25rem;
+    padding: 1rem;
+    height: 2.25rem;
+    color: rgba(92, 102, 126, 1);
+    font-family: "Titillium Web", sans-serif;
+  }
+
+  &__select {
+    border: rgba(189, 197, 213, 1) solid 0.0625rem;
+    border-radius: 1.25rem;
+    padding: 0.3rem 0.5rem 0.5rem 1rem;
+    color: rgba(92, 102, 126, 1);
+    height: 2.25rem;
+    font-family: "Titillium Web", sans-serif;
+
+    appearance: none;
+    background-image: url("../../assets/images/Icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+  }
+
+  // Error state
+  &__container-error {
+    display: flex;
+    margin-top: 0.5rem;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__error-text {
+    color: $supporting-red;
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
