@@ -7,6 +7,12 @@
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 1rem;
+
+        @include desktop {
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
     &__title {
@@ -34,6 +40,10 @@
         @include tablet {
             background-position: 99%;
         }
+
+        @include desktop {
+            max-width: 18rem;
+        }
     }
 
     &__button {
@@ -49,6 +59,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include desktop {
+            max-width: 11rem;
+            padding: 1rem 0.5rem;
+        }
     }
 }
 
