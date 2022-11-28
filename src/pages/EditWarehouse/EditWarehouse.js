@@ -20,7 +20,6 @@ function EditWarehouse() {
     axios
       .get(`${SERVER_HOST}:${SERVER_PORT}/${SERVER_ENDPOINT}/${params.id}`)
       .then((response) => {
-        
         const testObject = {};
 
         testObject.name = response.data.warehouse_name;
@@ -33,12 +32,11 @@ function EditWarehouse() {
         testObject.email = response.data.contact_email;
 
         setInputValue(testObject);
-
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [params.id]);
 
   const inputFields = {
     value: {
@@ -71,15 +69,15 @@ function EditWarehouse() {
     const { name, value } = e.target;
     // update input value state
     setInputValue({
-        ...inputValue,
-        [name]: value
+      ...inputValue,
+      [name]: value,
     });
     // update input valid state
     setInputValid({
-        ...inputValid,
-        [name]: true
+      ...inputValid,
+      [name]: true,
     });
-};
+  };
 
   // check form vlaidation
   const handleFormVlidation = () => {
@@ -131,9 +129,12 @@ function EditWarehouse() {
       };
 
       axios
-        .put(`${SERVER_HOST}:${SERVER_PORT}/${SERVER_ENDPOINT}/${params.id}`, newWarehouse)
+        .put(
+          `${SERVER_HOST}:${SERVER_PORT}/${SERVER_ENDPOINT}/${params.id}`,
+          newWarehouse
+        )
         .then((res) => {
-            navigate('/')
+          navigate("/");
         })
         .catch((err) => {
           console.log(`an error occured ${err}`);
@@ -141,118 +142,207 @@ function EditWarehouse() {
     }
   };
   return (
-    <div className='warehouse'>
-        <div className='warehouse__container'>
-            <div className='warehouse__header'>
-                <Link className='warehouse__back' to='/'>
-                    <img className='warehouse__arrow' src={backArrow} alt='back arrow' />
-                </Link>
-                <h1 className='warehouse__title'>Edit Warehouse</h1>
-            </div>
-            <form className='warehouse__form' onSubmit={handleFormSubmit}>
-                <div className='warehouse__inputs'>
-                    <div className='warehouse__details'>
-                        <h2 className='warehouse__subtitle'>Warehouse Details</h2>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='warehouse-name'>
-                                Warehouse Name
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.name ? `warehouse__input--error` : null}`} type='text' name='name' id='warehouse-name' placeholder='Warehouse Name'
-                                value={inputValue.name}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.name && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='street-address'>
-                                Street Address
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.address ? `warehouse__input--error` : null}`} type='text' name='address' id='street-address' placeholder='Street Address'
-                                value={inputValue.address} onChange={handleInputChange}
-                            />
-                            {!inputValid.address && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='warehouse-city'>
-                                City
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.city ? `warehouse__input--error` : null}`} type='text' name='city' id='warehouse-city' placeholder='City'
-                                value={inputValue.city}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.city && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='warehouse-country'>
-                                Country
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.country ? `warehouse__input--error` : null}`} type='text' name='country' id='warehouse-country' placeholder='Country'
-                                value={inputValue.country}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.country && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                    </div>
-                    <div className='warehouse__contact'>
-                        <h2 className='warehouse__subtitle'>Contact Details</h2>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='contact-name'>
-                                Contact Name
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.person ? `warehouse__input--error` : null}`} type='text' name='person' id='contact-name' placeholder='Contact Name'
-                                value={inputValue.person}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.person && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='contact-position'>
-                                Position
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.position ? `warehouse__input--error` : null}`} type='text' name='position' id='contact-position' placeholder='Position'
-                                value={inputValue.position}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.position && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='contact-phone'>
-                                Phone Number
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.phone ? `warehouse__input--error` : null}`} type='text' name='phone' id='contact-phone' placeholder='Phone Number'
-                                value={inputValue.phone}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.phone && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                        <div className='warehouse__field'>
-                            <label className='warehouse__label' htmlFor='contact-email'>
-                                Email
-                            </label>
-                            <input
-                                className={`warehouse__input ${!inputValid.email ? `warehouse__input--error` : null}`} type='text' name='email' id='contact-email' placeholder='Email'
-                                value={inputValue.email}
-                                onChange={handleInputChange}
-                            />
-                            {!inputValid.email && <span className='warehouse__error'>This field is required</span>}
-                        </div>
-                    </div>
-                </div>
-                <div className='warehouse__action'>
-                    <Link className='warehouse__cancel' to='/'>Cancel</Link>
-                    <button className='warehouse__submit' type='submit'>Save</button>
-                </div>
-            </form>
+    <div className="warehouse">
+      <div className="warehouse__container">
+        <div className="warehouse__header">
+          <Link className="warehouse__back" to="/">
+            <img
+              className="warehouse__arrow"
+              src={backArrow}
+              alt="back arrow"
+            />
+          </Link>
+          <h1 className="warehouse__title">Edit Warehouse</h1>
         </div>
+        <form className="warehouse__form" onSubmit={handleFormSubmit}>
+          <div className="warehouse__inputs">
+            <div className="warehouse__details">
+              <h2 className="warehouse__subtitle">Warehouse Details</h2>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="warehouse-name">
+                  Warehouse Name
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.name ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="name"
+                  id="warehouse-name"
+                  placeholder="Warehouse Name"
+                  value={inputValue.name}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.name && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="street-address">
+                  Street Address
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.address ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="address"
+                  id="street-address"
+                  placeholder="Street Address"
+                  value={inputValue.address}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.address && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="warehouse-city">
+                  City
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.city ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="city"
+                  id="warehouse-city"
+                  placeholder="City"
+                  value={inputValue.city}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.city && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="warehouse-country">
+                  Country
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.country ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="country"
+                  id="warehouse-country"
+                  placeholder="Country"
+                  value={inputValue.country}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.country && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="warehouse__contact">
+              <h2 className="warehouse__subtitle">Contact Details</h2>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="contact-name">
+                  Contact Name
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.person ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="person"
+                  id="contact-name"
+                  placeholder="Contact Name"
+                  value={inputValue.person}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.person && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="contact-position">
+                  Position
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.position ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="position"
+                  id="contact-position"
+                  placeholder="Position"
+                  value={inputValue.position}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.position && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="contact-phone">
+                  Phone Number
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.phone ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="phone"
+                  id="contact-phone"
+                  placeholder="Phone Number"
+                  value={inputValue.phone}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.phone && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+              <div className="warehouse__field">
+                <label className="warehouse__label" htmlFor="contact-email">
+                  Email
+                </label>
+                <input
+                  className={`warehouse__input ${
+                    !inputValid.email ? `warehouse__input--error` : null
+                  }`}
+                  type="text"
+                  name="email"
+                  id="contact-email"
+                  placeholder="Email"
+                  value={inputValue.email}
+                  onChange={handleInputChange}
+                />
+                {!inputValid.email && (
+                  <span className="warehouse__error">
+                    This field is required
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="warehouse__action">
+            <Link className="warehouse__cancel" to="/">
+              Cancel
+            </Link>
+            <button className="warehouse__submit" type="submit">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-);
+  );
 }
 
 export default EditWarehouse;
