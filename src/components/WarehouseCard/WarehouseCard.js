@@ -38,7 +38,7 @@ function WarehouseCard({ warehouseList, setIsOpen, setSelectedWarehouse, setWare
                 </div>
                 <div className="warehouse-card__icon-container">
                     <img onClick={() => handleDelete(warehouse.id, warehouse.warehouse_name)} className="warehouse-card__delete" src={deleteLogo} alt="delete icon"/>
-                    <img onClick={() => navigate(`/warehouses/edit-warehouse/${warehouse.id}`)} className="warehouse-card__edit" src={editLogo} alt="edit icon"/>
+                    <img onClick={() => navigate(`/warehouses/${warehouse.id}/edit`)} className="warehouse-card__edit" src={editLogo} alt="edit icon"/>
                 </div>
             </article>
             )
