@@ -38,8 +38,7 @@ function InventoryCard({ inventoryList, setIsOpen, setSelectedInventory, setInve
                      </div>
                     <div className='inventory-card__container inventory-card__container--buttons'>
                          <button onClick={() => handleDelete(inventory.id, inventory.item_name)} className='inventory-card__button btn-openModal'><img src={deleteLogo} alt='Delete Logo'/></button>
-                         <button onClick className='inventory-card__button btn-openModal'><img src={deleteLogo} alt='Delete Logo'/></button>
-                         <Link className='inventory-card__button' to={'/inventories/edit/' + inventory.id}><img src={editLogo} alt='Edit Logo'/></Link>
+                         <Link className='inventory-card__button' to={`/inventories/${inventory.id}/edit`}><img src={editLogo} alt='Edit Logo'/></Link>
                      </div> 
                  </div>
                 
