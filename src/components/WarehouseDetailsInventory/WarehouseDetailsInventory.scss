@@ -1,4 +1,3 @@
-@use "../../styles/partials/globals";
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
@@ -50,6 +49,7 @@
   &__container-icons {
     display: flex;
     width: 100%;
+    justify-content: space-between;
 
     @include tablet {
       width: 20%;
@@ -58,17 +58,13 @@
   }
 
   &__container-stock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.5rem 0 0 0;
-    height: 1.5rem;
-    max-width: 7.5rem;
-    border-radius: 1.25rem;
+    display: inline-block;
+  }
 
-    @include tablet {
-      margin: 0;
-    }
+  &__span {
+    display: inline-block;
+    margin: 0.5rem 0 0 0;
+    border-radius: 1.25rem;
 
     &--instock {
       background-color: rgba(21, 132, 99, 0.07);
@@ -82,16 +78,15 @@
   // Texts
   &__stock {
     margin: 0;
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     line-height: 1.25rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     text-transform: uppercase;
 
     @include tablet {
-      font-size: 0.875rem;
-      line-height: 1.375rem;
-      padding: 0;
+      font-size: 0.6875rem;
+      line-height: 1.125rem;
     }
 
     &--instock {
@@ -140,6 +135,7 @@
 
     @include tablet {
       justify-content: flex-end;
+      width: 25%;
     }
 
     &--edit {

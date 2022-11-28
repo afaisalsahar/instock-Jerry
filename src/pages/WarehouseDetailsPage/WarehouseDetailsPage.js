@@ -80,6 +80,7 @@ const WarehouseDetailsPage = () => {
             status={inventory.status}
             quantity={inventory.quantity}
             key={inventory.id}
+            id={inventory.id}
           />
         );
       })}

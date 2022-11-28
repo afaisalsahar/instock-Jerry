@@ -1,24 +1,24 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.warehouse-search {
-
+.inventory-search {
     &__container {
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 1rem;
 
-        @include desktop {
+        @include tablet {
             flex-wrap: nowrap;
-            align-items: center;
-            justify-content: space-between;
+            margin: 0 1rem 2rem;
+
         }
     }
 
     &__title {
         flex-basis: 100%;
         margin: 1.5rem 1rem 0;
-    }
+
+   }
 
     &__input {
         flex-basis: 100%;
@@ -32,6 +32,7 @@
         background-repeat: no-repeat;
         background-position: 98%;
 
+
         &:focus {
             outline: none;
             border: 1px solid $primary-indigo;
@@ -39,10 +40,8 @@
 
         @include tablet {
             background-position: 99%;
-        }
-
-        @include desktop {
-            max-width: 18rem;
+            margin-top: 2rem;
+            max-width: 25%;
         }
     }
 
@@ -56,46 +55,66 @@
         margin: 1rem 1rem 0;
         cursor: pointer;
         text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
+        padding-top: .25rem;
+        
+        @include tablet {
+            margin-top: 2rem;
+            max-width: 25%;
+        }
 
         @include desktop {
-            max-width: 11rem;
-            padding: 1rem 0.5rem;
+            max-width: 15%;
         }
+
     }
 }
 
-// Header (Hidden in mobile)
+button.inventory-search__button:hover {
+    background-color: $primary-black;
+}
 
-.warehouse-header {
+.inventory-header {
     display: none;
-    background-color: rgba(247, 248, 249, 0.7);
 
     @include tablet {
+        padding: 0 2rem;
         display: flex;
-        text-transform: uppercase;
-        justify-content: space-between;
-        flex-basis: 100%;
-        padding: 0 1rem;
-    }
-
-    &__title-action {
-        min-width: 3rem;
+        background-color: $background-light-grey;
     }
 
     &__container {
-        display: flex;
-        min-width: 9rem;
+        @include tablet {
+            &--items {
+                width: 20%;
+            }
+            &--category {
+                width: 20%;
+            }
+            &--status {
+                width: 15%;
+            }
+            &--qty {
+                width: 15%;
+            }
+            &--warehouse {
+                width: 20%;
+            }
+            &--actions {
+                width: 10%;
+            }
+        }
     }
 
     &__sort {
-        cursor: pointer;
+        max-width: 40px;
+        vertical-align: middle;
+        margin-left: .25rem;
     }
-}
-// Hover State
 
-button.warehouse-search__button:hover {
-    background-color: $primary-black;
+    &__title {
+        @include tablet {
+            color: $secondary-slate;
+        }
+    }
 }
