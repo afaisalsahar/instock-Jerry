@@ -4,6 +4,7 @@ import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 import WarehouseDetailsInventory from "../../components/WarehouseDetailsInventory/WarehouseDetailsInventory";
 import WarehouseDetailsHeaders from "../../components/WarehouseDetailsHeaders/WarehouseDetailsHeaders";
+import WarehouseInventoryModal from "../../components/WarehouseInventoryModal/WarehouseInventoryModal";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import edit from "../../assets/images/Icons/edit_white-24px.svg";
 import "./WarehouseDetailsPage.scss";
@@ -14,6 +15,9 @@ const URL = process.env.REACT_APP_URL;
 const WarehouseDetailsPage = () => {
   const [singleWarehouse, setSingleWarehouse] = useState({});
   const [inventoryList, setInventoryList] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedInventory, setSelectedInventory] = useState(null);
+  const [selectedInventId, setSelectedInventId] = useState(null);
 
   const { id } = useParams();
 
@@ -31,7 +35,7 @@ const WarehouseDetailsPage = () => {
         setInventoryList(data);
       })
       .catch((err) => console.error(err));
-  }, [id]);
+  }, [isOpen]);
 
   return (
     <Fragment>
@@ -81,9 +85,21 @@ const WarehouseDetailsPage = () => {
             quantity={inventory.quantity}
             key={inventory.id}
             id={inventory.id}
+            setIsOpen={setIsOpen}
+            setSelectedInventory={setSelectedInventory}
+            setSelectedInventId={setSelectedInventId}
           />
+          
         );
       })}
+      <WarehouseInventoryModal
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      itemName={selectedInventory}
+      itemId={selectedInventId}
+      warehouseName={singleWarehouse.warehouse_name}
+      warehouseId={singleWarehouse.id}
+      />
     </Fragment>
   );
 };
