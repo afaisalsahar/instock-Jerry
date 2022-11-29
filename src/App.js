@@ -14,6 +14,7 @@ import "./App.scss";
 function App() {
   return (
     <BrowserRouter>
+    <div className="page-container">
       <Header />
       <main className="app">
         <Routes>
@@ -34,7 +35,10 @@ function App() {
           <Route path="/*" element />
         </Routes>
       </main>
+      <div className="footer">
       <Footer />
+      </div>
+      </div>
     </BrowserRouter>
   );
 }
