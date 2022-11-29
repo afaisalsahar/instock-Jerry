@@ -5,46 +5,47 @@ import InventoryDetailsEdit from "../../components/InventoryDetailsEdit/Inventor
 import InventoryAvailabilityEdit from "../../components/InventoryAvailabilityEdit/InventoryAvailabilityEdit";
 import InventorySubmitEdit from "../../components/InventorySubmitEdit/InventorySubmitEdit";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
-import "./InventoryEditPage.scss"
+import "./InventoryEditPage.scss";
 
 const PORT = process.env.REACT_APP_PORT;
 const URL = process.env.REACT_APP_URL;
 
-
 const InventoryEditPage = () => {
-
   const [inputValues, setInputValues] = useState({});
-  const [status, setStatus] = useState("outStock");
+  const [status, setStatus] = useState("inStock");
   const [error, setError] = useState(false);
 
-  const {id} = useParams()
+  console.log(inputValues.quantity);
+  console.log(status);
 
+  const { id } = useParams();
+
+  // Get data for inventory item based on ID
   useEffect(() => {
-    axios.get(`${URL}${PORT}/inventories/${id}`).then(({data})=>{
+    axios.get(`${URL}${PORT}/inventories/${id}`).then(({ data }) => {
       const initialValues = {
         item_name: data.item_name,
-        description:data.description,
+        description: data.description,
         category: data.category,
         status: data.status,
         quantity: String(data.quantity),
-        warehouse_id:data.warehouse_id,
+        warehouse_id: data.warehouse_id,
       };
 
-      setInputValues(initialValues)
-    })
-  },[id])
+      setInputValues(initialValues);
+    });
+  }, [id]);
 
-  console.log(inputValues)
+  // Reassigns status based on value of quantity
+  useEffect(() => {
+    if (inputValues.quantity === "0") setStatus("outStock");
+  }, [inputValues.quantity]);
 
   // Making instance of useNavigate
   const navigate = useNavigate();
 
   // Sets quantity to default "0" if inventory is Out of Stock
   if (status === "outStock") inputValues.quantity = "0";
-
-  useEffect ( () => {
-    if (inputValues.quantity === "0") setStatus("outStock")
-  }, [])
 
   // Assigning input values to initialValues
   const handleInputChange = (e) => {

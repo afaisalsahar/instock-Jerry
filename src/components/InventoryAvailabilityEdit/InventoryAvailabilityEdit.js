@@ -39,7 +39,7 @@ const InventoryAvailabilityEdit = ({
                 name="status"
                 value="inStock"
                 onClick={toggleStatus}
-                checked={status === "inStock" ? true : false} 
+                checked={status === "inStock" ? true : false}
               />
               <label htmlFor="inStock" className="inventory-edit__label-radio">
                 In stock
@@ -53,7 +53,7 @@ const InventoryAvailabilityEdit = ({
                 name="status"
                 value="outStock"
                 onClick={toggleStatus}
-                checked={status === "outStock" ? true : false} 
+                checked={status === "outStock" ? true : false}
               />
               <label htmlFor="outStock" className="inventory-edit__label-radio">
                 Out of stock
