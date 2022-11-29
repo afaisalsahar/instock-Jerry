@@ -5,6 +5,7 @@ import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsP
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
+import InventoryEditPage from "./pages/InventoryEditPage/InventoryEditPage";
 import WarehouseList from "./pages/WarehouseList/WarehouseList";
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
@@ -27,7 +28,7 @@ function App() {
 
           <Route path="/inventories" element={<InventoryPage />} />
           <Route path="/inventories/:id" element={<InventoryDetailsPage />} />
-          <Route path="/inventories/:id/edit" element />
+          <Route path="/inventories/:id/edit" element={<InventoryEditPage />} />
           <Route path="/inventories/add" element={<AddInventoryItemPage />} />
 
           <Route path="/*" element />

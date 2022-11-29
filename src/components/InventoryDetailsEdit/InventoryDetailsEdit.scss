@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-edit {
+  &__textarea {
+    border: rgba(189, 197, 213, 1) solid 0.0625rem;
+    border-radius: 1.25rem;
+    padding: 1rem 1rem 0 1rem;
+    height: 7.5rem;
+    color: rgba(92, 102, 126, 1);
+    font-family: "Titillium Web", sans-serif;
+    resize: none;
+  }
+}
