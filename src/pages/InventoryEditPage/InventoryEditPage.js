@@ -74,7 +74,7 @@ const InventoryEditPage = () => {
     } else {
       // Post new inventory item
       axios
-        .post(`${URL}${PORT}/inventories`, {
+        .put(`${URL}${PORT}/inventories/${id}`, {
           item_name: inputValues.item_name,
           description: inputValues.description,
           category: inputValues.category,
