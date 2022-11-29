@@ -10,7 +10,17 @@ const WarehouseDetailsInventory = ({
   status,
   quantity,
   id,
+  setIsOpen,
+  setSelectedInventory,
+  setSelectedInventId
 }) => {
+
+  const handleDelete = (event, id) => {
+    setIsOpen(true)
+    setSelectedInventory(event)
+    setSelectedInventId(id)
+};
+
   return (
     <section className="inventory">
       <div className="inventory__container">
@@ -67,7 +77,7 @@ const WarehouseDetailsInventory = ({
 
         <div className="inventory__container-icons">
           <Link className="inventory__link">
-            <img src={deleteIcon} alt="delete" className="inventory__image" />
+            <img onClick={() => handleDelete({item}, {id})} src={deleteIcon} alt="delete" className="inventory__image" />
           </Link>
           <Link className="inventory__link inventory__link--edit">
             <img

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import backArrow from "../../assets/images/Icons/arrow_back-24px.svg";
 import edit from "../../assets/images/Icons/edit_white-24px.svg";
@@ -13,6 +13,8 @@ const InventoryDetailsPage = () => {
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`${URL}${PORT}/inventories/${id}`)
@@ -20,30 +22,19 @@ const InventoryDetailsPage = () => {
       .catch((err) => console.error(err));
   }, [id]);
 
-  const {
-    item_name,
-    category,
-    description,
-    status,
-    quantity,
-    warehouse_name,
-    warehouse_id,
-  } = inventoryDetail;
+  const { item_name, category, description, status, quantity, warehouse_name } =
+    inventoryDetail;
 
   return (
     <section className="inventory">
       <div className="inventory-details__container-headers">
         <div className="inventory-details__container-header">
-          <Link
-            to={`/warehouses/${warehouse_id}`}
-            className="inventory-details__arrow"
-          >
-            <img
-              src={backArrow}
-              alt="back arrow"
-              className="inventory-details__arrow-image"
-            />
-          </Link>
+          <img
+            onClick={() => navigate(-1)}
+            src={backArrow}
+            alt="back arrow"
+            className="inventory-details__arrow-image"
+          />
           <h1 className="inventory-details__title">{item_name}</h1>
         </div>
         <Link

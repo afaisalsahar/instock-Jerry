@@ -38,6 +38,13 @@
         &:hover {
             text-decoration-line: underline;
         }
+
+        &:hover + img {
+            animation-name: bounce-1;
+            animation-timing-function: linear;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
     }
 
     &__contact-name, &__contact-info, &__address {
@@ -51,6 +58,13 @@
 
     &__warehouse-chevron {
         width: 1.5rem;
+
+        &:hover {
+                animation-name: bounce-1;
+                animation-timing-function: linear;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+        }
 
         @include tablet {
             width: 2rem;
@@ -98,4 +112,14 @@
         cursor: pointer;
         width: 1.5rem;
     }
+}
+
+// animation
+@keyframes bounce-1 {
+    0%   { transform: scaleX(-1) translateX(0px); }
+    50%   { transform: scaleX(-1) translateX(0px); }
+    70%  { transform: scaleX(-1) translateX(10px); }
+    80% { transform: scaleX(-1) translateX(0); }
+    90% { transform: scaleX(-1) translateX(10px); }
+    100% { transform: scaleX(-1) translateX(0); }
 }

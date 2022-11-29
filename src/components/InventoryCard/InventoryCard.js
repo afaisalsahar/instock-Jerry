@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import editLogo from '../../assets/images/Icons/edit_blue-24px.svg';
-import deleteLogo from '../../assets/images/Icons/delete_outline-24px.svg';
-import chevronLogo from '../../assets/images/Icons/chevron_right-24px.svg';
-import './InventoryCard.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import editLogo from "../../assets/images/Icons/edit_blue-24px.svg";
+import deleteLogo from "../../assets/images/Icons/delete_outline-24px.svg";
+import chevronLogo from "../../assets/images/Icons/chevron_right-24px.svg";
+import "./InventoryCard.scss";
 
 function InventoryCard({ inventoryList, setIsOpen, setSelectedInventory, setInventoryName }) {
 
