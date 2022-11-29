@@ -148,4 +148,9 @@
       flex: 15% 0 1;
     }
   }
+
+  &__format {
+    color: $secondary-slate;
+    font-size: 0.625rem;
+  }
 }

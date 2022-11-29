@@ -120,6 +120,7 @@ const AddWarehouse = () => {
         .post(`${SERVER_HOST}:${SERVER_PORT}/${SERVER_ENDPOINT}`, newWarehouse)
         .then((res) => {
           handleResetState();
+          navigate("/");
         })
         .catch((err) => {
           console.log(`an error occured ${err}`);
@@ -287,6 +288,9 @@ const AddWarehouse = () => {
                   value={inputValue.phone}
                   onChange={handleInputChange}
                 />
+                <p className="warehouse__format">
+                  Please enter number in "+1 (xxx) xxx-xxxx" format
+                </p>
                 {!inputValid.phone && (
                   <span className="warehouse__error">
                     This field is required
