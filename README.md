@@ -2,10 +2,10 @@
 
 This project is a full-stack, scalable, and time-sensitive inventory management system for a fortune 500 size company. An Agile team is assigned to build it from ground up with a modern React front-end communicating with a robust Express back-end. A project manager is assigned to set up a JIRA Scrum board with the required tasks outlined. Each team member has taken an equal split of front-end/back-end tasks and move their tickets through different columns on the JIRA board.
 
+![Mockup](https://raw.githubusercontent.com/afaisalsahar/instock-Jerry/develop/instock-mockup.jpg)
+
 # Team
     Hasan / Vincent / John / Ahmad
-
-![Mockup](https://raw.githubusercontent.com/afaisalsahar/instock-Jerry/develop/instock-mockup.jpg)
 
 ## Tools and Resources
 
