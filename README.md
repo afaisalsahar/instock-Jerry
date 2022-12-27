@@ -4,7 +4,7 @@ This project is a full-stack, scalable, and time-sensitive inventory management 
 
 ![Mockup](https://raw.githubusercontent.com/afaisalsahar/instock-Jerry/develop/instock-mockup.jpg)
 
-# Team
+## Team
     Hasan / Vincent / John / Ahmad
 
 ## Tools and Resources
