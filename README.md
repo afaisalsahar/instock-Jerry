@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# BrainStation Instock 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack, scalable, and time-sensitive inventory management system for a fortune 500 size company. An Agile team is assigned to build it from ground up with a modern React front-end communicating with a robust Express back-end. A project manager is assigned to set up a JIRA Scrum board with the required tasks outlined. Each team member has taken an equal split of front-end/back-end tasks and move their tickets through different columns on the JIRA board.
 
-## Available Scripts
+## Tools and Resources
 
-In the project directory, you can run:
+All the style guides, and mockups can be found in this [![Link](https://www.figma.com/file/qLdwhUjqq5bKxoNYZ6v5Ze/U---InStock-Mockups?node-id=1196%3A0&t=02POE0FXwSdY8j1M-1)
 
-### `npm start`
+Figma allows the team to interactively explore all of the mockups for different screen sizes, view the specifications of elements, and view some CSS suggestions that can be used to speed up front-end development work.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The following tools and libraries are used to complete the project:
+    create-react-app
+    react-router-dom
+    Node
+    Express
+    mysql
+    knex
+    BEM/SASS
+    npm (to install packages that will aid in project development)
+    Postman
+    React
+    Browser development tools
 
-### `npm test`
+## Visual Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app design closely resembles the mockups at and between all dimensions.
 
-### `npm run build`
+## Implementation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    The app use multiple routes.
+    The app incorporates proper routes for each page/component and use different strategies to pass around routing props to various components.
+    The app effectively shows/hides elements when switching between different dimensions.
+    The app make use of React components as appropriate, and state/props to make the user interface dynamic.
+    The app follows proper file/directory structure and naming convention for a full stack web application.
